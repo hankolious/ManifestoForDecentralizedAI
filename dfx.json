@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "DeAIManifesto_backend": {
+      "main": "src/DeAIManifesto_backend/main.mo",
+      "type": "motoko"
+    },
+    "DeAIManifesto_frontend": {
+      "dependencies": [
+        "DeAIManifesto_backend"
+      ],
+      "source": [
+        "src/DeAIManifesto_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "DeAIManifesto_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
