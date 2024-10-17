@@ -1,59 +1,27 @@
-# DeAIManifesto
+# Manifesto for Decentralized AI (DeAI)
 
-Welcome to your new DeAIManifesto project and to the Internet Computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+## Preamble
 
-To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
+In an era where Artificial Intelligence (AI) is increasingly central to our daily lives, this ubiquitous use of AI in applications ranging from mundane to critical tasks has powerful forces racing to establish control; the power over these transformative technologies, though, must not be confined to a few centralized entities. The Internet has brought tremendous decentralization of access to information and ease of communication, but also the centralization of power and corporate ownership of data. This trend will worsen if left unchecked. The principles of Decentralized AI (DeAI) can reverse this trend if users and application developers recognize its importance to their long-term welfare.
 
-To learn more before you start working with DeAIManifesto, see the following documentation available online:
+We envision a future where AI is democratized, broadly empowering, and adaptive to the diverse needs and values of all users, groups, and their contexts. This manifesto lays out the principles and reasons for decentralizing AI and advocates for a fair, transparent, and user-centric AI ecosystem.
 
-- [Quick Start](https://internetcomputer.org/docs/current/developer-docs/setup/deploy-locally)
-- [SDK Developer Tools](https://internetcomputer.org/docs/current/developer-docs/setup/install)
-- [Motoko Programming Language Guide](https://internetcomputer.org/docs/current/motoko/main/motoko)
-- [Motoko Language Quick Reference](https://internetcomputer.org/docs/current/motoko/main/language-manual)
+## Principles of Decentralized AI
 
-If you want to start working on your project right away, you might want to try the following commands:
+- **DeAI Is Safe AI**: DeAI prioritizes user safety by implementing robust security measures and rigorous testing protocols to minimize the risk of unintended consequences or malicious exploitation.
 
-```bash
-cd DeAIManifesto/
-dfx help
-dfx canister --help
-```
+- **DeAI Is Self-Sovereign AI**: Users should have complete control over their AI. Your AI should work for you, reflect your values, and serve your needs without external interference.
 
-## Running the project locally
+- **DeAI Is Secure AI**: Privacy is a guarantee, not just a feature. DeAI ensures your data remains your own, safe from prying eyes and misuse.
 
-If you want to test your project locally, you can use the following commands:
+- **DeAI Is Accessible AI**: DeAI makes advanced AI available to all. Extending the principles of the World Wide Web to AI, it is inclusive in the users it serves and in the supported interaction methods.
 
-```bash
-# Starts the replica, running in the background
-dfx start --background
+- **DeAI Is Participatory AI**: By allowing open contributions and attributing the created value back to the owner, DeAI enables everyone to participate in shaping the AI revolution and benefiting from it.
 
-# Deploys your canisters to the replica and generates your candid interface
-dfx deploy
-```
+- **DeAI Is Responsible AI**: User empowerment and respecting stakeholders’ best interests are topmost priorities for DeAI. This includes best efforts to be resource-efficient and deliver sustainable solutions.
 
-Once the job completes, your application will be available at `http://localhost:4943?canisterId={asset_canister_id}`.
+- **DeAI Is Verifiable AI**: Enabling thorough inspection and verification of DeAI systems promotes transparency of the underlying code and algorithms, as well as accountability to identify and rectify errors or biases in the AI's behavior.
 
-If you have made changes to your backend canister, you can generate a new candid interface with
+---
 
-```bash
-npm run generate
-```
-
-at any time. This is recommended before starting the frontend development server, and will be run automatically any time you run `dfx deploy`.
-
-If you are making frontend changes, you can start a development server with
-
-```bash
-npm start
-```
-
-Which will start a server at `http://localhost:8080`, proxying API requests to the replica at port 4943.
-
-### Note on frontend environment variables
-
-If you are hosting frontend code somewhere without using DFX, you may need to make one of the following adjustments to ensure your project does not fetch the root key in production:
-
-- set`DFX_NETWORK` to `ic` if you are using Webpack
-- use your own preferred method to replace `process.env.DFX_NETWORK` in the autogenerated declarations
-  - Setting `canisters -> {asset_canister_id} -> declarations -> env_override to a string` in `dfx.json` will replace `process.env.DFX_NETWORK` with the string in the autogenerated declarations
-- Write your own `createActor` constructor
+Join us in the movement towards Decentralized AI. Together, we can create an AI ecosystem that works for everyone, maximizes contributions to a prosperous future for all beings on the planet, and provides control, privacy, and fairness in the AI technologies that shape our lives.
