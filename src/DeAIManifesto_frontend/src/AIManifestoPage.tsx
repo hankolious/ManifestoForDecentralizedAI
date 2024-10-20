@@ -1,34 +1,4 @@
-//import { useState } from 'react';
 import { DeAIManifesto_backend } from 'declarations/DeAIManifesto_backend';
-
-/* function App() {
-  const [greeting, setGreeting] = useState('');
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    const name = event.target.elements.name.value;
-    DeAIManifesto_backend.greet(name).then((greeting) => {
-      setGreeting(greeting);
-    });
-    return false;
-  }
-
-  return (
-    <main>
-      <img src="/logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting">{greeting}</section>
-    </main>
-  );
-}
-
-export default App; */
 
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -43,7 +13,7 @@ const principles = [
     number: "02",
     title: "DeAI Is Self-Sovereign AI",
     description:
-      "Users should have complete control over their AI. Your AI should work for you, reflect your values and serve your needs without external interference.",
+      "Users should have complete control over their AI. Your AI should work for you, reflect your values, and serve your needs without external interference.",
   },
   {
     number: "03",
@@ -65,7 +35,7 @@ const principles = [
   },
   {
     number: "06",
-    title: "DeAI is Responsible AI",
+    title: "DeAI Is Responsible AI",
     description:
       "User empowerment and respecting stakeholders’ best interests are topmost priorities for DeAI. This includes best efforts to be resource-efficient and deliver sustainable solutions.",
   },
@@ -73,7 +43,7 @@ const principles = [
     number: "07",
     title: "DeAI Is Verifiable AI",
     description:
-      "Enabling thorough inspection and verification of DeAI systems promotes transparency of the underlying code and algorithms as well as accountability to identify and rectify errors or biases in the AI's behavior.",
+      "Enabling thorough inspection and verification of DeAI systems promotes transparency of the underlying code and algorithms, as well as accountability to identify and rectify errors or biases in the AI's behavior.",
   },
 ];
 
@@ -118,30 +88,6 @@ const AIManifestoPage: React.FC<{
         className="relative container-10 px-6 py-12 text-white"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* <div className="float-right pointer-events-none sticky top-8 md:top-20 z-10 md:pr-8">
-          <button
-            className="pointer-events-auto flex w-12 h-12 rounded-full border-none bg-[#181818] justify-center items-center"
-            onClick={onClose}
-          >
-            <svg
-              width="30"
-              height="30"
-              viewBox="0 0 30 30"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                width="30"
-                height="30"
-                rx="15"
-                fill="#181818"
-                fillOpacity="0.6"
-              />
-              <path d="M9.34277 9.34375L20.6565 20.6575" stroke="white" />
-              <path d="M9.34277 20.6572L20.6565 9.34352" stroke="white" />
-            </svg>
-          </button>
-        </div> */}
         <div className="md:top-20 z-10 pr-0 md:pr-8 ">
           {" "}
           <div className="flex flex-col py-6 ">
@@ -150,7 +96,7 @@ const AIManifestoPage: React.FC<{
                 Manifesto for Decentralized AI (DeAI)
               </h1>
               <p className="tw-lead-sm md:tw-lead mt-6">
-                In an era where Artificial Intelligence (AI) is increasingly central to our daily lives, this ubiquitous use of AI in applications ranging from mundane to critical tasks has powerful forces racing to establish control; the power over these transformative technologies though must not be confined to a few centralized entities. The Internet has brought tremendous decentralization of access to information and ease of communication, but also the centralization of power and corporate ownership of data. This trend will worsen if left unchecked. The principles of Decentralized AI (DeAI) can reverse this trend if users and application developers recognize its importance to their long-term welfare. We envision a future where AI is democratized, broadly empowering, and adaptive to the diverse needs and values of all users, groups and their contexts. This manifesto lays out the principles and reasons for decentralizing AI and advocates for a fair, transparent, and user-centric AI ecosystem.
+                In an era where Artificial Intelligence (AI) is increasingly central to our daily lives, this ubiquitous use of AI in applications ranging from mundane to critical tasks has powerful forces racing to establish control; the power over these transformative technologies, though, must not be confined to a few centralized entities. The Internet has brought tremendous decentralization of access to information and ease of communication, but also the centralization of power and corporate ownership of data. This trend will worsen if left unchecked. The principles of Decentralized AI (DeAI) can reverse this trend if users and application developers recognize its importance to their long-term welfare. We envision a future where AI is democratized, broadly empowering, and adaptive to the diverse needs and values of all users, groups, and their contexts. This manifesto lays out the principles and reasons for decentralizing AI and advocates for a fair, transparent, and user-centric AI ecosystem.
               </p>
             </section>
             {principles.map((principle, index) => (
