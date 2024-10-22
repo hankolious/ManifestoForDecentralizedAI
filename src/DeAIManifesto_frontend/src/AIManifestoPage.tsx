@@ -2,6 +2,14 @@ import { DeAIManifesto_backend } from 'declarations/DeAIManifesto_backend';
 
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
+import { organizationSignees } from './helpers/organization_signees.js';
+
+const individualSignees = [
+  { name: "Alice Johnson" },
+  { name: "Bob Smith" },
+]; // TODO: get from backend
+
 const principles = [
   {
     number: "01",
@@ -74,6 +82,25 @@ const AIManifestoPage: React.FC<{
 }> = ({ onClose }) => {
   const overlayRef = useRef<HTMLDivElement>();
 
+  const [organizations, setOrganizations] = useState(organizationSignees);
+  const [individuals, setIndividuals] = useState(individualSignees);
+  const [newSupporter, setNewSupporter] = useState({ name: "", type: "individual" });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewSupporter((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFormSubmit = (e) => { // TODO: add basic checks and then write to backend
+    e.preventDefault();
+    if (newSupporter.type === "organization") {
+      setOrganizations([...organizations, { name: newSupporter.name, logo: "/path-to-placeholder-logo.png" }]);
+    } else {
+      setIndividuals([...individuals, { name: newSupporter.name }]);
+    }
+    setNewSupporter({ name: "", type: "individual" });
+  };
+
   return (
     <motion.div
       className="fixed inset-0 overflow-auto z-[2000] bg-[#0C0025]/90 backdrop-blur-lg overflow-x-hidden"
@@ -111,6 +138,47 @@ const AIManifestoPage: React.FC<{
               <p className="text-white tw-lead-sm md:tw-lead">
                 Join us in the movement towards Decentralized AI. Together, we can create an AI ecosystem that works for everyone, maximizes contributions to a prosperous future for all beings on the planet, and provides control, privacy, and fairness in the AI technologies that shape our lives.
               </p>
+            </section>
+          </div>
+          <div className="flex flex-col py-6 ">
+            <section className="mt-10">
+              <h2 className="text-white text-2xl mb-6">Sign the Manifesto</h2>
+              <form onSubmit={handleFormSubmit} className="mb-10">
+                <div className="mb-4">
+                  <label htmlFor="name" className="block text-white mb-2">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={newSupporter.name}
+                    onChange={handleInputChange}
+                    className="w-full p-2 text-black"
+                    required
+                  />
+                </div>
+                <button type="submit" className="bg-blue-500 text-white px-4 py-2">Sign Manifesto</button>
+              </form>
+
+              {/* Organizations List */}
+              <h2 className="text-white text-2xl mb-6">Organizations for DeAI</h2>
+              <ul className="mb-10">
+                {organizations.map((org, index) => (
+                  <li key={index} className="flex items-center mb-4">
+                    <img src={org.logo} alt={org.name} className="w-10 h-10 mr-4" />
+                    <span>{org.name}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Individuals List */}
+              <h2 className="text-white text-2xl mb-6">Individuals for DeAI</h2>
+              <ul>
+                {individuals.map((person, index) => (
+                  <li key={index} className="mb-2">
+                    {person.name}
+                  </li>
+                ))}
+              </ul>
             </section>
           </div>
         </div>
