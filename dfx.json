@@ -8,17 +8,19 @@
       "dependencies": [
         "DeAIManifesto_backend"
       ],
+      "frontend": {
+        "entrypoint": "dist/index.html"
+      },
       "source": [
-        "src/DeAIManifesto_frontend/dist"
+        "dist/"
       ],
-      "type": "assets",
-      "workspace": "DeAIManifesto_frontend"
+      "type": "assets"
     }
   },
   "defaults": {
     "build": {
       "args": "",
-      "packtool": ""
+      "packtool": "mops sources"
     }
   },
   "output_env_file": ".env",

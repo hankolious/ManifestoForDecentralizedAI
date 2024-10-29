@@ -1,8 +1,8 @@
-import { DeAIManifesto_backend } from 'declarations/DeAIManifesto_backend';
+import { DeAIManifesto_backend } from '../../declarations/DeAIManifesto_backend';
 
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+// @ts-ignore
 import { organizationSignees } from './helpers/organization_signees.js';
 
 const individualSignees = [
@@ -184,19 +184,7 @@ const AIManifestoPage: React.FC<{
                     required
                   />
                 </div>
-                <div className="mb-4">
-                  <label className="block text-white mb-2">Type</label>
-                  <select
-                    name="type"
-                    value={newSupporter.type}
-                    onChange={handleInputChange}
-                    className="w-full p-2 text-black"
-                  >
-                    <option value="individual">Individual</option>
-                    <option value="organization">Organization</option>
-                  </select>
-                </div>
-                <button type="submit" className="bg-blue-500 text-white px-4 py-2">Sign Manifesto</button>
+                <button type="submit" className="bg-blue-900 text-black px-4 py-2">Sign Manifesto</button>
               </form>
               {message && <p className="text-yellow-400 mb-4">{message}</p>}
 

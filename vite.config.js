@@ -2,13 +2,15 @@ import { fileURLToPath, URL } from 'url';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import environment from 'vite-plugin-environment';
-import dotenv from 'dotenv';
-
-dotenv.config({ path: '../../.env' });
+import { resolve } from 'path';
 
 export default defineConfig({
+  root: ".", // Explicitly set root to the directory containing vite.config.js and index.html
   build: {
-    emptyOutDir: true,
+    outDir: 'dist', // Output directory for build files
+    rollupOptions: {
+      input: resolve('./index.html'), // Explicitly specify the path to index.html
+    },
   },
   optimizeDeps: {
     esbuildOptions: {
@@ -17,6 +19,7 @@ export default defineConfig({
       },
     },
   },
+  publicDir: "./src/DeAIManifesto_frontend/public",
   server: {
     proxy: {
       "/api": {
