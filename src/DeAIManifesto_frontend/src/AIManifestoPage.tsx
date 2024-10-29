@@ -84,21 +84,37 @@ const AIManifestoPage: React.FC<{
 
   const [organizations, setOrganizations] = useState(organizationSignees);
   const [individuals, setIndividuals] = useState(individualSignees);
-  const [newSupporter, setNewSupporter] = useState({ name: "", type: "individual" });
+  const [newSupporter, setNewSupporter] = useState({ name: "", emailAddress: "", type: "individual" });
+  const [message, setMessage] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewSupporter((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleFormSubmit = (e) => { // TODO: add basic checks and then write to backend
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    if (newSupporter.type === "organization") {
-      setOrganizations([...organizations, { name: newSupporter.name, logo: "/path-to-placeholder-logo.png" }]);
-    } else {
-      setIndividuals([...individuals, { name: newSupporter.name }]);
+
+    // Basic validation for name and email
+    if (!newSupporter.name || !newSupporter.emailAddress) {
+      setMessage("Please provide both your name and email address.");
+      return;
     }
-    setNewSupporter({ name: "", type: "individual" });
+
+    // Prepare input for backend
+    const submittedSignUpForm = {
+      name: newSupporter.name,
+      emailAddress: newSupporter.emailAddress,
+    };
+
+    try {
+      // Submit to backend
+      const resultMessage = await DeAIManifesto_backend.submit_signup_form(submittedSignUpForm);
+      setMessage(resultMessage);
+    } catch (error) {
+      console.error("Error submitting sign-up form:", error);
+      setMessage("Submission failed. Please try again.");
+    }
   };
 
   return (
@@ -156,29 +172,54 @@ const AIManifestoPage: React.FC<{
                     required
                   />
                 </div>
+                <div className="mb-4">
+                  <label htmlFor="emailAddress" className="block text-white mb-2">Email Address</label>
+                  <input
+                    type="email"
+                    id="emailAddress"
+                    name="emailAddress"
+                    value={newSupporter.emailAddress}
+                    onChange={handleInputChange}
+                    className="w-full p-2 text-black"
+                    required
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="block text-white mb-2">Type</label>
+                  <select
+                    name="type"
+                    value={newSupporter.type}
+                    onChange={handleInputChange}
+                    className="w-full p-2 text-black"
+                  >
+                    <option value="individual">Individual</option>
+                    <option value="organization">Organization</option>
+                  </select>
+                </div>
                 <button type="submit" className="bg-blue-500 text-white px-4 py-2">Sign Manifesto</button>
               </form>
+              {message && <p className="text-yellow-400 mb-4">{message}</p>}
 
               {/* Organizations List */}
               <h2 className="text-white text-2xl mb-6">Organizations for DeAI</h2>
               <ul className="mb-10">
                 {organizations.map((org, index) => (
                   <li key={index} className="flex items-center mb-4">
-                    <img src={org.logo} alt={org.name} className="w-10 h-10 mr-4" />
+                    <img src={org.logo} alt={org.name} className="w-20 mr-4" />
                     <span>{org.name}</span>
                   </li>
                 ))}
               </ul>
 
               {/* Individuals List */}
-              <h2 className="text-white text-2xl mb-6">Individuals for DeAI</h2>
+              {/* <h2 className="text-white text-2xl mb-6">Individuals for DeAI</h2>
               <ul>
                 {individuals.map((person, index) => (
                   <li key={index} className="mb-2">
                     {person.name}
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </section>
           </div>
         </div>
