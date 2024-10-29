@@ -2,13 +2,13 @@
 export const organizationSignees = [
     {
       name: "DFINITY Foundation",
-      logo: "./logo2.svg",
+      logo: "./dfinity_logo.png",
       signDate: "",
       signedBy: "",
     },
     {
       name: "onicai",
-      logo: "./path-to-onicai-logo.png",
+      logo: "./onicai-horizontal-logo.svg",
       signDate: "2024-10-22",
       signedBy: "Patrick Friedrich",
     },
