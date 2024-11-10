@@ -168,7 +168,7 @@ const AIManifestoPage: React.FC<{
                     name="name"
                     value={newSupporter.name}
                     onChange={handleInputChange}
-                    className="w-full p-2 text-black"
+                    className="w-80 p-2 text-black"
                     required
                   />
                 </div>
@@ -180,7 +180,7 @@ const AIManifestoPage: React.FC<{
                     name="emailAddress"
                     value={newSupporter.emailAddress}
                     onChange={handleInputChange}
-                    className="w-full p-2 text-black"
+                    className="w-80 p-2 text-black"
                     required
                   />
                 </div>
