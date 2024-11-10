@@ -194,9 +194,9 @@ const AIManifestoPage: React.FC<{
                 {organizations.map((org, index) => (
                   <li key={index} className="flex items-center mb-4">
                     <a href={org.url} target="_blank">
-                      <img src={org.logo} alt={org.name} className="w-20 mr-4" />                                        
+                      <img src={org.logo} alt={org.name} className="w-40 mr-4" />                                        
                     </a>
-                    <span>{org.name}</span>
+                    {/* <span>{org.name}</span> */}
                   </li>
                 ))}
               </ul>
