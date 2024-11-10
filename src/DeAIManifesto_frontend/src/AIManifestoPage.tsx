@@ -67,7 +67,7 @@ const ManifestoPrinciple: React.FC<ManifestoPrincipleProps> = ({
   description,
 }) => {
   return (
-    <section className="flex flex-col w-full md:max-w-[660px] mt-20 md:mt-10 md:self-center tw-lead md:tw-lead-lg">
+    <section className="flex flex-col w-full md:max-w-[660px] mt-20 md:mt-10 md:self-center tw-lead md:tw-lead-lg font-circular font-book">
       <div className="flex items-start gap-3">
         <span className="text-white/30">{number}</span>
         <h2 className="text-white md:mt-[0.4rem]">{title}</h2>
@@ -150,14 +150,14 @@ const AIManifestoPage: React.FC<{
                 description={principle.description}
               />
             ))}
-            <section className="md:self-center flex flex-col md:max-w-[660px] mt-20 md:mt-10">
+            <section className="md:self-center flex flex-col md:max-w-[660px] mt-20 md:mt-10 font-circular font-book">
               <p className="text-white tw-lead-sm md:tw-lead">
                 Join us in the movement towards Decentralized AI. Together, we can create an AI ecosystem that works for everyone, maximizes contributions to a prosperous future for all beings on the planet, and provides control, privacy, and fairness in the AI technologies that shape our lives.
               </p>
             </section>
           </div>
           <div className="flex flex-col py-6 ">
-            <section className="mt-10">
+            <section className="mt-10 font-circular font-book">
               <h2 className="text-white text-2xl mb-6">Sign the Manifesto</h2>
               <form onSubmit={handleFormSubmit} className="mb-10">
                 <div className="mb-4">
