@@ -15,5 +15,12 @@ export const organizationSignees = [
     signDate: "2024-10-22",
     signedBy: "Patrick Friedrich",
   },
+  {
+    name: "Kinic",
+    logo: "./onicai-logo-organization-signee.svg",
+    url: "https://kinic.io/",
+    signDate: "2024-11-20",
+    signedBy: "",
+  },
 ];
   
