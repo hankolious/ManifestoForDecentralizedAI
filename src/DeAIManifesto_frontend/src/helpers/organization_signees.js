@@ -17,7 +17,7 @@ export const organizationSignees = [
   },
   {
     name: "Kinic",
-    logo: "./onicai-logo-organization-signee.svg",
+    logo: "./kinic-logo-organization-signee.png",
     url: "https://kinic.io/",
     signDate: "2024-11-20",
     signedBy: "",
