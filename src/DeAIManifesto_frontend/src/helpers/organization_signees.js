@@ -11,7 +11,7 @@ export const organizationSignees = [
   {
     name: "onicai",
     logo: "./onicai-logo-organization-signee.svg",
-    url: "https://onicai.com/",
+    url: "https://www.onicai.com/",
     signDate: "2024-10-22",
     signedBy: "Patrick Friedrich",
   },
