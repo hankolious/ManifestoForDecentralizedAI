@@ -14,5 +14,5 @@ Please follow these steps:
 * Double-check everything and commit your changes with a commit message like so: "Add [yourOrgName] as DeAI Manifesto signee"
 * Push your branch and create a PR in the public repo (add a reviewer)
 * Your PR will be reviewed and merged if it all looks good
-* Awesoem, your organization shows up as an official DeAI manifesto signee on the live page!
+* Awesome, your organization shows up as an official DeAI manifesto signee on the live page!
 
