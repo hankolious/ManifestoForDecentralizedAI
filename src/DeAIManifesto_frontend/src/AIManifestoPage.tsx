@@ -126,6 +126,19 @@ const AIManifestoPage: React.FC<{
       exit={{ opacity: 0 }}
       ref={overlayRef}
     >
+      <div className="absolute top-4 right-4 z-50">
+        <a
+          href="https://github.com/DeAIWorkingGroupInternetComputer/ManifestoForDecentralizedAI"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="./GitHub-logo.png"
+            alt="GitHub Repository"
+            className="h-11"
+          />
+        </a>
+      </div>
       <div className="fixed inset-0"></div>
       <div
         className="relative container-10 px-6 py-12 text-white"
@@ -200,6 +213,17 @@ const AIManifestoPage: React.FC<{
                   </li>
                 ))}
               </ul>
+
+              <p className="text-white mb-6">
+                Sign the manifesto as an organization or project and add your logo to the list {" "}
+                <a
+                  href="https://github.com/DeAIWorkingGroupInternetComputer/ManifestoForDecentralizedAI/blob/main/README_signAsOrganization.md"
+                  target="_blank"
+                  className="text-blue-400 underline"
+                >
+                  by following this simple guide.
+                </a>
+              </p>
 
               {/* Individuals List */}
               {/* <h2 className="text-white text-2xl mb-6">Individuals for DeAI</h2>
