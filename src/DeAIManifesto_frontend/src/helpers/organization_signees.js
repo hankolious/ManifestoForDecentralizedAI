@@ -22,5 +22,12 @@ export const organizationSignees = [
     signDate: "2024-11-20",
     signedBy: "",
   },
+  {
+    name: "ELNA.ai",
+    logo: "./elnaai-logo-organization-signee.png",
+    url: "https://www.elna.ai/",
+    signDate: "2024-11-27",
+    signedBy: "",
+  },
 ];
   
