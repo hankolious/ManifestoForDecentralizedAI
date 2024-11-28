@@ -69,6 +69,19 @@ actor {
     return [];
   };
 
+  // Function for custodian to get the number of email subscribers
+  public shared query ({ caller }) func get_number_of_manifesto_signees() : async Int {
+    // don't allow anonymous Principal
+    if (Principal.isAnonymous(caller)) {
+      return 0;
+		};
+    // Only Principals registered as custodians can access this function
+    if (Principal.isController(caller)) {
+      return Iter.toArray(signeesStorage.entries()).size();
+    };
+    return 0;
+  };
+
   // Function for custodian to delete an email subscriber
   public shared({ caller }) func delete_manifesto_signee(emailAddress : Text) : async Bool {
     // don't allow anonymous Principal
