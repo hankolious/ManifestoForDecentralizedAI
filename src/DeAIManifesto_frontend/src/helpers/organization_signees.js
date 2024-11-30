@@ -29,5 +29,12 @@ export const organizationSignees = [
     signDate: "2024-11-27",
     signedBy: "",
   },
+  {
+    name: "DeAI.chat",
+    logo: "./deai.chat-logo-organization-signee.svg",
+    url: "https://deai.chat/",
+    signDate: "2024-11-30",
+    signedBy: "",
+  },
 ];
   
