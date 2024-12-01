@@ -29,5 +29,12 @@ export const organizationSignees = [
     signDate: "2024-11-27",
     signedBy: "",
   },
+  {
+    name: "Lopezi",
+    logo: "./lopezi-logo-organization-signee.svg",
+    url: "https://www.lopezi.com/",
+    signDate: "2024-12-01",
+    signedBy: "Nuno Lopes",
+  },
 ];
   
