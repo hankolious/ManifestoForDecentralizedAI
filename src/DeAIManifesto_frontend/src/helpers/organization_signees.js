@@ -36,5 +36,12 @@ export const organizationSignees = [
     signDate: "2024-11-30",
     signedBy: "",
   },
+  {
+    name: "Alexandria",
+    logo: "./alexandria-logo-organization-signee.png",
+    url: "https://lbry.app/",
+    signDate: "2024-12-02",
+    signedBy: "Evan McFarland",
+  }
 ];
   
