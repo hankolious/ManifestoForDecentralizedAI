@@ -30,11 +30,25 @@ export const organizationSignees = [
     signedBy: "",
   },
   {
+    name: "DeAI.chat",
+    logo: "./deai.chat-logo-organization-signee.svg",
+    url: "https://deai.chat/",
+    signDate: "2024-11-30",
+    signedBy: "",
+  },
+  {
     name: "Lopezi",
     logo: "./lopezi-logo-organization-signee.svg",
     url: "https://www.lopezi.com/",
     signDate: "2024-12-01",
     signedBy: "Nuno Lopes",
   },
+  {
+    name: "Alexandria",
+    logo: "./alexandria-logo-organization-signee.png",
+    url: "https://lbry.app/",
+    signDate: "2024-12-02",
+    signedBy: "Evan McFarland",
+  }
 ];
   
