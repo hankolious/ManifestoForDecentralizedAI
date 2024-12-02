@@ -37,6 +37,13 @@ export const organizationSignees = [
     signedBy: "",
   },
   {
+    name: "Lopezi",
+    logo: "./lopezi-logo-organization-signee.svg",
+    url: "https://www.lopezi.com/",
+    signDate: "2024-12-01",
+    signedBy: "Nuno Lopes",
+  },
+  {
     name: "Alexandria",
     logo: "./alexandria-logo-organization-signee.png",
     url: "https://lbry.app/",
