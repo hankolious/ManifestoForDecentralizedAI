@@ -56,7 +56,7 @@ actor {
     };  
   };
 
-  // Function for custodian to get all email subscribers
+  // Function for custodian to get all individual signees
   public shared query ({ caller }) func get_manifesto_signees() : async [(Text, ManifestoSignee)] {
     // don't allow anonymous Principal
     if (Principal.isAnonymous(caller)) {
@@ -69,7 +69,7 @@ actor {
     return [];
   };
 
-  // Function for custodian to get the number of email subscribers
+  // Function for custodian to get the number of individual signees
   public shared query ({ caller }) func get_number_of_manifesto_signees() : async Int {
     // don't allow anonymous Principal
     if (Principal.isAnonymous(caller)) {
@@ -82,7 +82,7 @@ actor {
     return 0;
   };
 
-  // Function for custodian to delete an email subscriber
+  // Function for custodian to delete an individual signee
   public shared({ caller }) func delete_manifesto_signee(emailAddress : Text) : async Bool {
     // don't allow anonymous Principal
     if (Principal.isAnonymous(caller)) {
