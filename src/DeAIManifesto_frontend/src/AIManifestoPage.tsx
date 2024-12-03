@@ -5,11 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 // @ts-ignore
 import { organizationSignees } from './helpers/organization_signees.js';
 
-const individualSignees = [
-  { name: "Alice Johnson" },
-  { name: "Bob Smith" },
-]; // TODO: get from backend
-
 const principles = [
   {
     number: "01",
@@ -83,9 +78,24 @@ const AIManifestoPage: React.FC<{
   const overlayRef = useRef<HTMLDivElement>();
 
   const [organizations, setOrganizations] = useState(organizationSignees);
-  const [individuals, setIndividuals] = useState(individualSignees);
+  const [individuals, setIndividuals] = useState([]);
   const [newSupporter, setNewSupporter] = useState({ name: "", emailAddress: "", type: "individual" });
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    const fetchIndividualSignees = async () => {
+      try {
+        console.log("in fetchIndividualSignees");
+        const names = await DeAIManifesto_backend.get_manifesto_signee_names();
+        console.log("in fetchIndividualSignees names ", names);
+        setIndividuals(names.map((name) => ({ name }))); // Map backend response to the expected structure
+      } catch (error) {
+        console.error("Error fetching individual signees:", error);
+      }
+    };
+  
+    fetchIndividualSignees();
+  }, []);  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -226,14 +236,14 @@ const AIManifestoPage: React.FC<{
               </p>
 
               {/* Individuals List */}
-              {/* <h2 className="text-white text-2xl mb-6">Individuals for DeAI</h2>
-              <ul>
+              <h2 className="text-white text-2xl mb-6">Individuals for DeAI</h2>
+              <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
                 {individuals.map((person, index) => (
-                  <li key={index} className="mb-2">
+                  <li key={index} className="mb-2 text-center md:text-left">
                     {person.name}
                   </li>
                 ))}
-              </ul> */}
+              </ul>
             </section>
           </div>
         </div>
