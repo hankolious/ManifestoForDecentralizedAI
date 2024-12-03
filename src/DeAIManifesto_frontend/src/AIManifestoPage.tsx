@@ -79,7 +79,7 @@ const AIManifestoPage: React.FC<{
 
   const [organizations, setOrganizations] = useState(organizationSignees);
   const [individuals, setIndividuals] = useState([]);
-  const [newSupporter, setNewSupporter] = useState({ name: "", emailAddress: "", type: "individual" });
+  const [newSupporter, setNewSupporter] = useState({ name: "", emailAddress: "", type: "individual", title: "", organization: "" });
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -115,6 +115,8 @@ const AIManifestoPage: React.FC<{
     const submittedSignUpForm = {
       name: newSupporter.name,
       emailAddress: newSupporter.emailAddress,
+      title: newSupporter.title as unknown as [string],
+      organization: newSupporter.organization as unknown as [string],
     };
 
     try {
@@ -184,7 +186,9 @@ const AIManifestoPage: React.FC<{
               <h2 className="text-white text-2xl mb-6">Sign the Manifesto</h2>
               <form onSubmit={handleFormSubmit} className="mb-10">
                 <div className="mb-4">
-                  <label htmlFor="name" className="block text-white mb-2">Name</label>
+                  <label htmlFor="name" className="block text-white mb-2">
+                    Name<span className="text-red-500"> *</span>
+                  </label>
                   <input
                     type="text"
                     id="name"
@@ -196,7 +200,9 @@ const AIManifestoPage: React.FC<{
                   />
                 </div>
                 <div className="mb-4">
-                  <label htmlFor="emailAddress" className="block text-white mb-2">Email Address</label>
+                  <label htmlFor="emailAddress" className="block text-white mb-2">
+                    Email Address<span className="text-red-500"> *</span>
+                  </label>
                   <input
                     type="email"
                     id="emailAddress"
@@ -205,6 +211,32 @@ const AIManifestoPage: React.FC<{
                     onChange={handleInputChange}
                     className="w-80 p-2 text-black"
                     required
+                  />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="title" className="block text-white mb-2">
+                    Title
+                  </label>
+                  <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    value={newSupporter.title || ""}
+                    onChange={handleInputChange}
+                    className="w-80 p-2 text-black"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="organization" className="block text-white mb-2">
+                    Organization
+                  </label>
+                  <input
+                    type="text"
+                    id="organization"
+                    name="organization"
+                    value={newSupporter.organization || ""}
+                    onChange={handleInputChange}
+                    className="w-80 p-2 text-black"
                   />
                 </div>
                 <button type="submit" className="bg-blue-900 text-black px-4 py-2">Sign Manifesto</button>
