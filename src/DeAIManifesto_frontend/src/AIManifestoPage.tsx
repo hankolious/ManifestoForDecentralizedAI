@@ -236,8 +236,8 @@ const AIManifestoPage: React.FC<{
               </p>
 
               {/* Individuals List */}
-              <h2 className="text-white text-2xl mb-6">Individuals for DeAI</h2>
-              <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+              <h2 className="text-white text-2xl mt-8 mb-6">Individuals for DeAI</h2>
+              <ul className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10 list-none">
                 {individuals.map((person, index) => (
                   <li key={index} className="mb-2 text-center md:text-left">
                     {person.name}
