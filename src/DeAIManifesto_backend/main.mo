@@ -6,6 +6,7 @@ import Principal "mo:base/Principal";
 import List "mo:base/List";
 import Iter "mo:base/Iter";
 import Text "mo:base/Text";
+import Array "mo:base/Array";
 
 actor {
   public query func greet(name : Text) : async Text {
@@ -54,6 +55,15 @@ actor {
       };
       case _ { return "Already signed!"; };
     };  
+  };
+
+  // Function to get all individual signee names
+  public query func get_manifesto_signee_names() : async [Text] {
+    // Filter out all info besides signee name
+    let signeeNames : [Text] = Array.map(Iter.toArray(signeesStorage.vals()), func (signee : ManifestoSignee) : Text {
+      return signee.name;
+    });
+    return signeeNames;
   };
 
   // Function for custodian to get all individual signees
