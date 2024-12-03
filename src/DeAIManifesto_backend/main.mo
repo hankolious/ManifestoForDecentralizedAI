@@ -18,11 +18,15 @@ actor {
     name: Text;
     emailAddress: Text;
     signedAt: Nat64;
+    title: ?Text;
+    organization: ?Text;
   };
 
   public type SignUpFormInput = {
     name: Text;
     emailAddress: Text;
+    title: ?Text;
+    organization: ?Text;
   };
 
   stable var signeesStorageStable : [(Text, ManifestoSignee)] = [];
@@ -46,6 +50,8 @@ actor {
           emailAddress: Text = submittedSignUpForm.emailAddress;
           name: Text = submittedSignUpForm.name;
           signedAt: Nat64 = Nat64.fromNat(Int.abs(Time.now()));
+          title: ?Text = submittedSignUpForm.title;
+          organization: ?Text = submittedSignUpForm.organization;
         };
         let result = putManifestoSignee(newSignee);
         if (result != newSignee.emailAddress) {
