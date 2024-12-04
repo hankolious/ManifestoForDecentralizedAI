@@ -115,8 +115,8 @@ const AIManifestoPage: React.FC<{
     const submittedSignUpForm = {
       name: newSupporter.name,
       emailAddress: newSupporter.emailAddress,
-      title: newSupporter.title as unknown as [string],
-      organization: newSupporter.organization as unknown as [string],
+      title: [newSupporter.title] as unknown as [string],
+      organization: [newSupporter.organization] as unknown as [string],
     };
 
     try {
