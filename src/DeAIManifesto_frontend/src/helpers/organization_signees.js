@@ -49,6 +49,13 @@ export const organizationSignees = [
     url: "https://lbry.app/",
     signDate: "2024-12-02",
     signedBy: "Evan McFarland",
+  },
+  {
+    name: "FormyFi",
+    logo: "./formyfi.png",
+    url: "https://formyfi.io/",
+    signDate: "2024-12-04",
+    signedBy: "Azizbek Khalilov",
   }
 ];
   
