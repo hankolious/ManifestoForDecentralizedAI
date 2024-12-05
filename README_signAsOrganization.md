@@ -4,7 +4,7 @@ This is the guide on how to sign the DeAI manifesto as an organization. It invol
 You'll need a GitHub account (to create the PR) and your organization's logo.
 
 Please follow these steps:
-* Clone this GitHub repository: https://github.com/DeAIWorkingGroupInternetComputer/ManifestoForDecentralizedAI
+* Fork this GitHub repository: https://github.com/DeAIWorkingGroupInternetComputer/ManifestoForDecentralizedAI
 * Create a new branch named like so: [yourOrgName]-sign-deaimanifesto
 * Add your organization's entry to the signees in this file: https://github.com/DeAIWorkingGroupInternetComputer/ManifestoForDecentralizedAI/blob/main/src/DeAIManifesto_frontend/src/helpers/organization_signees.js
 * Copy-paste an existing entry to the bottom of the list and adapt it to fit your organization (e.g. name, today's date)
