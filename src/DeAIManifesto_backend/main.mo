@@ -6,6 +6,7 @@ import Principal "mo:base/Principal";
 import List "mo:base/List";
 import Iter "mo:base/Iter";
 import Text "mo:base/Text";
+import Array "mo:base/Array";
 
 actor {
   public query func greet(name : Text) : async Text {
@@ -17,11 +18,15 @@ actor {
     name: Text;
     emailAddress: Text;
     signedAt: Nat64;
+    title: ?Text;
+    organization: ?Text;
   };
 
   public type SignUpFormInput = {
     name: Text;
     emailAddress: Text;
+    title: ?Text;
+    organization: ?Text;
   };
 
   stable var signeesStorageStable : [(Text, ManifestoSignee)] = [];
@@ -45,6 +50,8 @@ actor {
           emailAddress: Text = submittedSignUpForm.emailAddress;
           name: Text = submittedSignUpForm.name;
           signedAt: Nat64 = Nat64.fromNat(Int.abs(Time.now()));
+          title: ?Text = submittedSignUpForm.title;
+          organization: ?Text = submittedSignUpForm.organization;
         };
         let result = putManifestoSignee(newSignee);
         if (result != newSignee.emailAddress) {
@@ -56,7 +63,16 @@ actor {
     };  
   };
 
-  // Function for custodian to get all email subscribers
+  // Function to get all individual signee names
+  public query func get_manifesto_signee_names() : async [Text] {
+    // Filter out all info besides signee name
+    let signeeNames : [Text] = Array.map(Iter.toArray(signeesStorage.vals()), func (signee : ManifestoSignee) : Text {
+      return signee.name;
+    });
+    return signeeNames;
+  };
+
+  // Function for custodian to get all individual signees
   public shared query ({ caller }) func get_manifesto_signees() : async [(Text, ManifestoSignee)] {
     // don't allow anonymous Principal
     if (Principal.isAnonymous(caller)) {
@@ -69,7 +85,7 @@ actor {
     return [];
   };
 
-  // Function for custodian to get the number of email subscribers
+  // Function for custodian to get the number of individual signees
   public shared query ({ caller }) func get_number_of_manifesto_signees() : async Int {
     // don't allow anonymous Principal
     if (Principal.isAnonymous(caller)) {
@@ -82,7 +98,7 @@ actor {
     return 0;
   };
 
-  // Function for custodian to delete an email subscriber
+  // Function for custodian to delete an individual signee
   public shared({ caller }) func delete_manifesto_signee(emailAddress : Text) : async Bool {
     // don't allow anonymous Principal
     if (Principal.isAnonymous(caller)) {
