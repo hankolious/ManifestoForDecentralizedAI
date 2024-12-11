@@ -64,5 +64,12 @@ export const organizationSignees = [
     signDate: "2024-12-09",
     signedBy: "Jesse Glass",
   },
+  {
+    name: "Yuku",
+    logo: "./yuku-logo-organization-signee.png",
+    url: "https://yuku.app/",
+    signDate: "2024-12-10",
+    signedBy: "Jayz",
+  },
 ];
   
