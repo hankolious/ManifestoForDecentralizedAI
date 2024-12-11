@@ -187,7 +187,7 @@ const AIManifestoPage: React.FC<{
               <form onSubmit={handleFormSubmit} className="mb-10">
                 <div className="mb-4">
                   <label htmlFor="name" className="block text-white mb-2">
-                    Name<span className="text-red-500"> *</span>
+                    First and Last Name<span className="text-red-500"> *</span>
                   </label>
                   <input
                     type="text"
