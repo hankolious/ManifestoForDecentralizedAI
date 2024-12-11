@@ -123,10 +123,13 @@ const AIManifestoPage: React.FC<{
       // Submit to backend
       const resultMessage = await DeAIManifesto_backend.submit_signup_form(submittedSignUpForm);
       setMessage(resultMessage);
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
     } catch (error) {
       console.error("Error submitting sign-up form:", error);
       setMessage("Submission failed. Please try again.");
-    }
+    };
   };
 
   return (
