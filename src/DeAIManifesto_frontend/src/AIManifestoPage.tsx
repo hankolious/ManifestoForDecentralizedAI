@@ -85,13 +85,11 @@ const AIManifestoPage: React.FC<{
   useEffect(() => {
     const fetchIndividualSignees = async () => {
       try {
-        console.log("in fetchIndividualSignees");
         const names = await DeAIManifesto_backend.get_manifesto_signee_names();
-        console.log("in fetchIndividualSignees names ", names);
         setIndividuals(names.map((name) => ({ name }))); // Map backend response to the expected structure
       } catch (error) {
         console.error("Error fetching individual signees:", error);
-      }
+      };
     };
   
     fetchIndividualSignees();
