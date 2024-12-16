@@ -71,5 +71,12 @@ export const organizationSignees = [
     signDate: "2024-12-10",
     signedBy: "Jayz",
   },
+  {
+    name: "MingleBerryMedia",
+    logo: "./MingleBerryMedia-logo-organization-signee.jpg",
+    url: "https://mingleberrymedia.com/",
+    signDate: "2024-12-16",
+    signedBy: "hankolious",
+  },
 ];
   
